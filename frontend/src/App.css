@@ -1,38 +1,162 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap');
+
+body{
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+html{
+  scroll-behavior: smooth;
+}
+*{
+  font-family: 'poppins',sans-serif;
+}
+:root{
+  --colora:red;
+  --fonta: 3.5rem;
+  --fontb: 2.3rem;
+  --fontc:1.2rem;
+  --fontd:0.8rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container{
+  height: 100vh;
+  background-repeat: no-repeat;
+ background-size: cover;
+ background-position:center;
+ transition: 1s;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+nav{
+  height: 80px;
+  width: 100vw;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  padding: 0 5%;
+  background-color: transparent;
+}
+.logoholder{
+  height: 130px;
+  border-radius: 0 0 35px 35px;
+  background-color: black;
+  padding: 0 10px;
+
+}
+.logoholder2{
+  height: 115px;
+  border-radius: 0 0 25px 25px;
+  background-color: transparent;
+  border: solid 3px var(--colora);
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+.logo{
+  height: 75px;
+}
+nav ul{
+  width: 75%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  list-style: none;
+}
+nav ul li a{
+  color: white;
+  -webkit-text-stroke: 1px black;
+  text-decoration: none;
+}
+nav ul li a:hover{
+  color: var(--colora);
+}
+.holder{
+  height: calc(100vh - 80px);
+  padding-top: calc(5% + 80px);
+  padding-bottom: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+.counter{
+  color: white;
+  position: fixed;
+  bottom: 80px;
+}
+.holder{
+  padding: 0 10%;
+}
+.holder2{
+  height: calc(100vh - 130px);
+  overflow-y:scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+/* .holder2::-webkit-scrollbar{
+  background-color: var(--colora);
+}
+.holder2::-webkit-scrollbar-track {
+  background-color: var(--colora);
+  border-left: solid black 7px;
+  border-right: solid black 7px;
+}
+.holder2::-webkit-scrollbar-thumb {
+  width: 18px;
+  border-radius: 10px;
+  border: solid 3px var(--colora);
+  background-color: transparent;
+
+  
+} */
+
+.holder2::-webkit-scrollbar,
+.holder2::-webkit-scrollbar-thumb,
+.holder2::-webkit-scrollbar-track { 
+    width: 8px;
+    border: none;
+    background: transparent;
+}
+
+.holder2::-webkit-scrollbar-button,
+.holder2::-webkit-scrollbar-track-piece,
+.holder2::-webkit-scrollbar-corner,
+.holder2::-webkit-resizer {
+    display: none;
+}
+
+.holder2::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    background-color: var(--colora);
+    
+    
+}
+
+.holder2::-webkit-scrollbar-track {
+    background-image: url("https://i.imgur.com/GvV1R30.png");
+    /* background-color: var(--colora); */
+    background-repeat: repeat-y;
+    background-size: contain;
+}
+
+
+#start{
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 130px);
+  scroll-snap-align: start;
+}
+#about{
+  height: calc(100vh - 130px);
+  scroll-snap-align: start;
+  /* padding: 0 10%; */
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+#info{
+  height: calc(100vh - 130px);
+  scroll-snap-align: start;
+  /* padding: 0 10%; */
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.youmusic{
+  color:white;
+  font-size: var(--fonta);
 }
