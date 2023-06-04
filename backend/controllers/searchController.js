@@ -34,15 +34,65 @@ const getSearchResults = asyncHandler(async(req,res)=>{
           res.status(404).json({status:"failed",reason:"maximum daily limit reached please comeback tomorrow!!"})
         }
         // Handle the search results
-        // console.log('Search results:', res1.data.items);
-        res.status(200).send(res1.data.items)
+        const originalArray = res1.data.items;
+        const newArray = originalArray.map((item) => {
+          const {id} = item;
+          const { title, channelTitle, thumbnails } = item.snippet;
+          return {
+            videoId: id.videoId,
+            title,
+            channelTitle,
+            thumbnail: thumbnails.default.url,
+          };
+        });
+        res.status(200).json({status:"success",data:newArray})
       });
+});
 
-    // res.status(200).send(q)
-})
-
-
+const trendingSearch = asyncHandler(async(req,res)=>{
+  async function getTrendingMusicVideos() {
+    // Set up the YouTube Data API client
+    const youtube = google.youtube('v3');
+    // Specify your API key
+    const apiKey = process.env.YOUTUBE_API_KEY;
+  
+    try {
+      const response = await youtube.videos.list({
+        key: apiKey,
+        part: 'snippet',
+        chart: 'mostPopular',
+        videoCategoryId: '10', // Music category
+        maxResults: 10, 
+      });
+  
+      
+      const videos = response.data.items.map((item) => {
+        const { videoId } = item.id;
+        const { title, channelTitle, thumbnails } = item.snippet;
+        const thumbnailUrl = thumbnails.default.url;
+        return { videoId, title, channelTitle, thumbnailUrl };
+      });
+  
+      return videos;
+    } catch (error) {
+      // console.error('Error retrieving :', error.message);
+      // return [];
+    }
+  }
+  
+  // Call the function
+  getTrendingMusicVideos()
+    .then((videos) => {
+      // console.log(videos);
+      res.status(200).json({status:"success",data:videos})
+    })
+    .catch((error) => {
+      // console.error('Error:', error);
+      res.status(404).json({status:"failed",reason:"maximum limit reached"})
+    });
+});
 
 module.exports = {
     getSearchResults,
+    trendingSearch,
 }
