@@ -13,6 +13,7 @@ html{
 }
 :root{
   --colora:red;
+  --font:6.4rem;
   --fonta: 3.5rem;
   --fontb: 2.3rem;
   --fontc:1.2rem;
@@ -34,6 +35,7 @@ nav{
   align-items: center;
   padding: 0 5%;
   background-color: transparent;
+  /* border-bottom: solid 1px black; */
 }
 .logoholder{
   height: 130px;
@@ -63,11 +65,26 @@ nav ul{
 }
 nav ul li a{
   color: white;
-  -webkit-text-stroke: 1px black;
   text-decoration: none;
+  font-size: var(--fontc);
 }
 nav ul li a:hover{
   color: var(--colora);
+}
+.btn-begin{
+  padding: 8px 25px;
+    font-size: 1rem;
+    text-transform: capitalize;
+    box-shadow: 0 0 35px var(--colora);
+    color: white;
+    background-color: black;
+    border-radius: 100px;
+    transition: 0.5s;
+}
+.btn-begin:hover{
+  color: white;
+    background-color: var(--colora);
+    box-shadow: 0 0 70px var(--colora);
 }
 .holder{
   height: calc(100vh - 80px);
@@ -76,10 +93,20 @@ nav ul li a:hover{
   padding-left: 10%;
   padding-right: 10%;
 }
+.counter-holder{
+  color: white;
+  border: solid white 1px;
+  position: fixed;
+  bottom: 40px;
+  left: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+}
 .counter{
   color: white;
-  position: fixed;
-  bottom: 80px;
 }
 .holder{
   padding: 0 10%;
@@ -90,22 +117,7 @@ nav ul li a:hover{
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
 }
-/* .holder2::-webkit-scrollbar{
-  background-color: var(--colora);
-}
-.holder2::-webkit-scrollbar-track {
-  background-color: var(--colora);
-  border-left: solid black 7px;
-  border-right: solid black 7px;
-}
-.holder2::-webkit-scrollbar-thumb {
-  width: 18px;
-  border-radius: 10px;
-  border: solid 3px var(--colora);
-  background-color: transparent;
 
-  
-} */
 
 .holder2::-webkit-scrollbar,
 .holder2::-webkit-scrollbar-thumb,
@@ -124,14 +136,13 @@ nav ul li a:hover{
 
 .holder2::-webkit-scrollbar-thumb {
     border-radius: 6px;
-    background-color: var(--colora);
+    background-color: white;
     
     
 }
 
 .holder2::-webkit-scrollbar-track {
     background-image: url("https://i.imgur.com/GvV1R30.png");
-    /* background-color: var(--colora); */
     background-repeat: repeat-y;
     background-size: contain;
 }
@@ -148,15 +159,75 @@ nav ul li a:hover{
 #about{
   height: calc(100vh - 130px);
   scroll-snap-align: start;
-  /* padding: 0 10%; */
+  padding-top: 10px;
   color: white;
 }
 #info{
   height: calc(100vh - 130px);
   scroll-snap-align: start;
-  /* padding: 0 10%; */
+  color: white;
+  padding-top: 10px;
 }
 .youmusic{
   color:white;
-  font-size: var(--fonta);
+  font-size: var(--font);
+  letter-spacing: 5px;
+  -webkit-text-stroke: 3px black;
+}
+.heading{
+  font-size: var(--fontb);
+  text-transform: uppercase;
+}
+.searchcontainer{
+  /* height: calc(100vh - 130px - 90px); */
+  height: 100%;
+  padding: 5% 10%;
+}
+.search-holder{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+input{
+  height: 50px;
+  width: 480px;
+  border-radius: 25px 0 0 25px;
+  padding: 0%;
+  margin: 0%;
+  padding-left: 16px;
+}
+.form-btn{
+  height: 50px;
+  width: 120px;
+  border-radius: 0 25px 25px 0;
+  padding: 0%;
+  margin: 0%;
+}
+.before-holder{
+  padding: 5% 0;
+
+}
+
+.player1{
+  position: fixed;
+  background-color: black;
+  height: 80px;
+  width: 100%;
+  bottom: 0;
+}
+.loader{
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.loader-loader{
+  height: 30vh;
+}
+.loader-text{
+  color: white;
 }

@@ -9,6 +9,8 @@ import image6 from '../background images/6.jpeg';
 import Start from './Start';
 import About from './About';
 import Info from './Info';
+import Logo from './Logo';
+
 
 const Main = () => {
   const [backgroundImage, setBackgroundImage] = useState(image1);
@@ -72,11 +74,9 @@ const Main = () => {
       <div className='container' style={{ backgroundImage: `url(${backgroundImage})` }}>
       
     <nav>
-        <div className="logoholder">
-            <div className="logoholder2">
-            <img src="./external assets/logo2.png" alt="" className="logo" />
-            </div>
-        </div>
+      <a href="#start">
+      <Logo></Logo>
+      </a>
       <ul>
         <li className={activeSection === 'start' ? 'active' : ''} style={activeSection === 'start' ? { '--colora': 'red' } : { '--colora': 'yellow' }}>
           <a href="#start">Start</a>
@@ -99,7 +99,9 @@ const Main = () => {
     <section id='info'><Info/></section>
     </div>
     </div>
-    <p className='counter'>Timer: {count}</p>
+    <div className="counter-holder">
+    <p className='counter'>{count}</p>
+    </div>
     </div>
   )
 }

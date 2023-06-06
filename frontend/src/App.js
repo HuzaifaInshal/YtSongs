@@ -1,9 +1,10 @@
 import './App.css';
-import Main from './components/Main';
+import Web from './components/Web';
+
 
 function App() {
   return (
-    <Main/>
+    <Web/>
   );
 }
 
