@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Loader = ({text}) => {
+const Loader = ({text, height}) => {
   return (
-    <div className="loader">
+    <div className="loader" style={{"height":`${height}`}}>
         <img src="./external assets/loader.gif" alt="" className='loader-loader'/>
         <p className="loader-text">{text}</p>
     </div>
