@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap');
+@font-face{
+  font-family: 'MatraRegular';
+  src: url(./fonts/MatraRegular.otf) format('opentype');
+}
 
 body{
   margin: 0;
@@ -25,7 +29,7 @@ html{
   background-repeat: no-repeat;
  background-size: cover;
  background-position:center;
- transition: 1s;
+ transition: 2s;
 }
 nav{
   height: 80px;
@@ -52,6 +56,7 @@ nav{
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 1s;
 }
 .logo{
   height: 75px;
@@ -70,6 +75,16 @@ nav ul li a{
 }
 nav ul li a:hover{
   color: var(--colora);
+}
+.counter1{
+  color: white;
+  position: fixed;
+  bottom: 60px;
+}
+.active a{
+  color:var(--colora);
+  text-decoration: underline solid 1px var(--colora);
+  
 }
 .btn-begin{
   padding: 8px 25px;
@@ -170,6 +185,7 @@ nav ul li a:hover{
 }
 .youmusic{
   color:white;
+  /* font-family: 'MatraRegular', sans-serif; */
   font-size: var(--font);
   letter-spacing: 5px;
   -webkit-text-stroke: 3px black;
@@ -206,15 +222,6 @@ input{
 }
 .before-holder{
   padding: 5% 0;
-
-}
-
-.player1{
-  position: fixed;
-  background-color: black;
-  height: 80px;
-  width: 100%;
-  bottom: 0;
 }
 .loader{
   height: 100vh;
@@ -230,4 +237,32 @@ input{
 }
 .loader-text{
   color: white;
+}
+.overlay {
+  height: 0;
+  width: 100%;
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  bottom: 0;
+  background-color: black;
+  overflow-y: hidden; 
+  transition: 0.5s; 
+}
+.player1{
+  position: fixed;
+  background-color: black;
+  height: 80px;
+  width: 100%;
+  bottom: 0;
+}
+.up{
+  width: 40px;
+  height: 20px;
+  border-radius: 12rem 12rem 0 0;
+  background-color: purple;
+}
+.player2{
+  height: calc(100vh - 80px);
+  background-color: aqua;
 }

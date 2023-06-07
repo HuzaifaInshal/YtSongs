@@ -2,31 +2,40 @@ import React, {useState} from 'react'
 import SearchContainer from './Search-Container'
 import Logo from './Logo'
 import { Link } from 'react-router-dom';
+import Before from './Before'
+import After from './After'
 
 const Search = () => {
-    
-    const [isFirst, setIsFirst] = useState(false)
     const [up,setUp] = useState(false)
-
+    const [isFirst, setIsFirst] = useState(false)
     const openOverlay = () =>{
         setUp(true)
     }
   return (
       <>
-    <nav>
+      <nav>
       <Link to="/home">
       <Logo/>
       </Link>
+      <div className="searchcontainer">
+          <div className="search-holder">
+              <form action="">
+                  <input type="text" placeholder='Search here' />
+                  <button type='submit' className='form-btn'>Search</button>
+              </form>
+          </div>
+      </div>
     </nav>
-    <SearchContainer isFirst={isFirst}/>
+    <div className="result-holder">
+      {isFirst ? <Before/> : <After/>}     
+    </div>
 
-
-    <div className="player" style={up ? {"height" : "100%"} : {"height" : "max-content"}}>
+    <div className="overlay" style={up ? {"height" : "100%"} : {"height" : "0%"}}>
     <div className="player2">
         
     </div>
     <div className="player1">
-        <div className="up"><button onClick={openOverlay}>Hello</button></div>
+    <a onClick={openOverlay}><div className="up">H</div></a>
     </div>
     </div>
       </>
