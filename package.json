@@ -5,11 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "nodemon index.js"
+    "server": "nodemon index.js",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "huzaifa inshal",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^8.2.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.1.3",
     "express": "^4.18.2",
     "express-async-handler": "^1.2.0",
