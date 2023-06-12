@@ -9,7 +9,7 @@ const formatTime = (timeInSeconds) => {
 };
 
 const MusicPlayer = ({audioURL}) => {
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
   const [progress, setProgress] = useState(0);
   const [volume, setVolume] = useState(100);
   const [currentTime, setCurrentTime] = useState(0);
@@ -60,8 +60,11 @@ const MusicPlayer = ({audioURL}) => {
   };
 
   return (
+    <>
+    {!audioURL ? <div className='empty'>Please search and select a song first to play</div> : 
     <div className='player-holder'>
       <audio
+      autoPlay
         ref={audioRef}
         src={audioURL}
         onTimeUpdate={handleTimeUpdate}
@@ -101,6 +104,8 @@ const MusicPlayer = ({audioURL}) => {
         />
       </div>
     </div>
+    }
+    </>
   );
 };
 
