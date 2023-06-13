@@ -133,6 +133,7 @@ nav ul li a:hover{
   overflow-y:scroll;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 
@@ -196,6 +197,7 @@ nav ul li a:hover{
   font-size: var(--fontb);
   text-transform: uppercase;
 }
+.box,
 .loader{
   z-index: 100;
   background-color: black;
@@ -211,6 +213,15 @@ nav ul li a:hover{
   top:0;
   bottom: 0;
   margin: auto;
+}
+.box{
+  border: solid white 2px;
+}
+.boxx{
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  color:white
 }
 .loader-loader{
   height: 50%;
@@ -393,8 +404,7 @@ overflow-y: auto;
 }
 .player2{
   height: calc(100vh - 80px);
-  background-color: aqua;
-  background-image: url(./background\ images/1.jpg);
+  
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -607,4 +617,7 @@ input[type=range]::-webkit-slider-runnable-track  {
   justify-content: center;
   align-items: center;
   color: white;
+}
+.z{
+  z-index: 1000;
 }

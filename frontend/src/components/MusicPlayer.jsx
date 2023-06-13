@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { useEffect } from 'react';
 
 const formatTime = (timeInSeconds) => {
   const minutes = Math.floor(timeInSeconds / 60);
@@ -15,6 +16,10 @@ const MusicPlayer = ({audioURL}) => {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const audioRef = useRef(null);
+
+  useEffect(()=>{
+    setIsPlaying(true)
+  },[audioURL])
 
   const handlePlayPause = () => {
     if (isPlaying) {
@@ -71,15 +76,15 @@ const MusicPlayer = ({audioURL}) => {
       />
       <div className="player-controls">
           <div className="player-controllers-holder">
-            <a className="player-controllers">
+            {/* <a className="player-controllers">
                 <i className="fa-sharp fa-solid fa-backward"></i>
-                </a>
+                </a> */}
                 <a onClick={handlePlayPause} className="player-controllers">
                 {isPlaying ? <i className="fa-sharp fa-solid fa-pause"></i> : <i className="fa-sharp fa-solid fa-play"></i>}
                 </a>
-                <a className="player-controllers">
+                {/* <a className="player-controllers">
                 <i className="fa-sharp fa-solid fa-forward"></i>
-                </a>
+                </a> */}
           </div>
         <div className='jojo'>
           <span className='current-time'>{formatTime(currentTime)}</span> 

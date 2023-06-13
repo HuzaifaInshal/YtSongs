@@ -3,6 +3,8 @@ import Main from './Main';
 import Search from './Search and Overlay';
 import { Route, Routes } from 'react-router-dom';
 
+
+
 const Web = () => {
   return (
 
@@ -10,6 +12,8 @@ const Web = () => {
           <Route exact path='/' element={<Search/>}/>
           <Route path='/home' element={<Main/>}/>
         </Routes>
+
+
 
 
   
