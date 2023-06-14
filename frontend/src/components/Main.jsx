@@ -126,13 +126,14 @@ const Main = () => {
       <Logo></Logo>
       </a>
       <ul>
-        <li className={visibleHeadingIndex === 0 ? 'active' : ''} >
+
+        <li className={`test ${visibleHeadingIndex === 0 ? 'active' : ''}`} >
           <a href="#start">Start</a>
         </li>
-        <li className={visibleHeadingIndex === 1 ? 'active' : ''} >
+        <li className={`test ${visibleHeadingIndex === 1 ? 'active' : ''}`} >
           <a href="#about">About</a>
         </li>
-        <li className={visibleHeadingIndex === 2 ? 'active' : ''} >
+        <li className={`test ${visibleHeadingIndex === 2 ? 'active' : ''}`} >
           <a href="#info">Info</a>
         </li>
         <li>

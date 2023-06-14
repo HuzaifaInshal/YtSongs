@@ -4,7 +4,7 @@ import Before from './Before'
 import MusicPlayer from './MusicPlayer';
 import Loader from './Loader'
 import { useEffect } from 'react';
-import {downloadFile} from './DownloadFunc'
+// import {downloadFile} from './DownloadFunc'
 
 
 
@@ -24,7 +24,7 @@ const Search = () => {
     const [URL,setURL]=useState();
     const [musicTitle,setMusicTitle]= useState();
     const [id,setId] = useState();
-    const [box,setBox]=useState(false);
+    const [qu,setQu]=useState([]);
 
  
 
@@ -55,13 +55,16 @@ const Search = () => {
       setLoading(true);
       const foundItem = myArray.find((item) => item.videoId === videoId);
       if(foundItem){
-        setPreURL(foundItem.url)
+        setURL(foundItem.url)
+        setQu(foundItem.similiar)
+        setUp(true)
       }else{
         try {
-          const response = await fetch(`http://localhost:4000/search/${videoId}`);
+          const response = await fetch(`http://localhost:4000/search/${videoId}?similiar=true`);
           const jsonData = await response.json();
-          setMyArray([...myArray,{videoId:videoId,url:jsonData.audioURL}])   
-          setPreURL(jsonData.audioURL)     
+          setPreURL(jsonData.audioURL)   
+          setQu(jsonData.similiar)  
+          setMyArray([...myArray,{videoId:videoId,url:jsonData.audioURL,similiar:jsonData.similiar}])   
         } catch (error) {
           console.error('Error fetching data:', error);
         }
@@ -69,9 +72,30 @@ const Search = () => {
       setLoading(false);
     };
 
+    const downloadFile=(videoId,title)=>{
+      setLoadingText('downloading your file please wait')
+      setLoading(true)
+      fetch(`http://localhost:4000/download/${videoId}`)
+        .then((response) => response.blob())
+        .then((blob) => {
+          const url = window.URL.createObjectURL(blob);
+          const link = document.createElement('a');
+          link.href = url;
+          link.download = title; 
+          link.click();
+          setLoading(false)
+        setLoadingText('loading..')
+        })
+        .catch((error) => {
+          console.error('Error downloading file:', error);
+          setLoading(false)
+        setLoadingText('loading..')
+        });
+    };
+
 
     const handleDownload = (videoId,title)=>{
-      setBox(true);
+      // setBox(true);
       downloadFile(videoId,title) 
 
     }
@@ -80,26 +104,16 @@ const Search = () => {
       fetchURLPlay(videoId,title,thumbnail);
     };
 
-
     useEffect(()=>{
       if(preURL){
         setURL(preURL);
         setUp(true)
       }
-    },[preURL])
+    },[preURL]);
 
-    const cross = ()=>{
-      setBox(false)
-    }
-    
 
   return (
     <>
-    {!box ? '': <div className='box' style={{"height":"70vh","width":"70vw"}}>
-      <a className="boxx" onClick={cross}><i className='fa-solid fa-xmark'></i></a>
-    <p className="loader-text">Your file is in process download will be started soon..</p>
-      </div>}
-
     {loading ? <Loader text={loadingText} height="70vh" width="70vw"/> : ''}
       <div className='search-and-overlay'>
     <div className="title-holder">
@@ -122,7 +136,7 @@ const Search = () => {
               
               <div key={video.videoId} className="result-holder-div">
                 <img src={video.thumbnail} alt={video.title} className="result-holder-image"/>
-                <h4 className='result-holder-h4'>{video.title}</h4>
+                  <h4 className='result-holder-h4'>{video.title}</h4>
                 <div className="result-holder-button-box">
                   <button className="play_button" style={{"width":"100px"}} onClick={() => handlePlay(video.videoId,video.title,video.thumbnail)}>PLAY</button>
                   <button className="play_button" onClick={() => handleDownload(video.videoId,video.title)}><i className="fa-sharp fa-solid fa-download"></i></button>
@@ -149,20 +163,20 @@ const Search = () => {
           </div>
         </div>
       </div>
-      {/* <div className="secb">
+      <div className="secb">
       <div className="similiar-videos-heading-holder">
-        <h1 className='similiar-videos-heading'>Next in Queue..</h1>
+        <h1 className='similiar-videos-heading'>Similiar in Queue..</h1>
       </div>
       <div className="similiar-videos-holder">
-        {filteredArray.map((single)=>(
+        {qu.map((single)=>(
           <div key={single.videoId} className="singleBox">
             <img src={single.thumbnail} alt="" className="singleImg" />
-            <h4 className='result-holder-h4'>{single.title}</h4>
-            <button className="play_button" style={{"width":"100px"}} onClick={() => handleFromQ(single.videoId,single.title,single.thumbnail)}>PLAY</button>
+            <h4 className='result-holder-h4 yus'>{single.title}</h4>
+            <button className="play_button" style={{"width":"100px"}} onClick={() => handlePlay(single.videoId,single.title,single.thumbnail)}>PLAY</button>
           </div>
         ))}
       </div>
-      </div> */}
+      </div>
     </div>
     </div>
 

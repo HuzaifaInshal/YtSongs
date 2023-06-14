@@ -24,6 +24,16 @@ html{
   --fontc:1.2rem;
   --fontd:0.8rem;
 }
+@media only screen and (max-width:800px){
+  :root{
+    --font:4.2rem
+  }
+}
+@media only screen and (max-width:540px){
+  :root{
+    --font:3.5rem
+  }
+}
 
 .container{
   height: 100vh;
@@ -410,6 +420,7 @@ overflow-y: auto;
   background-size: cover;
   display: flex;
   flex-direction: row;
+  gap: 20px;
 }
 .closer{
   height: 60px;
@@ -425,6 +436,7 @@ overflow-y: auto;
   left: 5%;
   transition: transform .2s;
   color: white; 
+  z-index: 10;
 }
 .closer:hover{
   transform: scale(1.5);
@@ -435,6 +447,7 @@ overflow-y: auto;
 .secb{
   width: 30%;
 }
+
 .similiar-videos-heading-holder{
   backdrop-filter: blur(20px);
   width:100%;
@@ -455,8 +468,10 @@ overflow-y: auto;
 .similiar-videos-holder{
   backdrop-filter: blur(10px);
   width: 100%;
-  height: 100%;
+  height: calc(100% - 85px);
+  overflow-y: auto;
 }
+
 .video-title-controls-holder{
   height: calc(100% - 80px);
   padding: 0 7%;
@@ -466,6 +481,23 @@ overflow-y: auto;
   justify-content: center;
   color: white;
   
+}
+@media only screen and (max-width:750px){
+  .player2{
+    flex-direction: column;
+    overflow-y: auto;
+  }
+  .seca,.secb{
+    width: 100%;
+  }
+  .similiar-videos-holder{
+    overflow: hidden;
+  }
+  .video-title-controls-holder{
+    padding: 0;
+    padding-top: 80px;
+    overflow-x: hidden;
+  }
 }
 .mm{
   height: fit-content;
@@ -478,6 +510,11 @@ overflow-y: auto;
   font-size: var(--fonta);
   margin: 0;
   padding: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; 
+  -webkit-box-orient: vertical;
 }
 .video-description{
   -webkit-text-stroke: 1px black;
@@ -583,6 +620,23 @@ overflow-y: auto;
 .duration{
   width: 80%;
 }
+@media only screen and (max-width:600px){
+  .volume{
+    width: 40%;
+  }
+  .duration{
+    width: 100%;
+  }
+  .test{
+    display: none;
+  }
+}
+@media only screen and (max-width:500px){
+  .volume{
+    width: 20%;
+  }
+}
+
 input[type="range"] {
   -webkit-appearance: none;
   height: 5px;
@@ -620,4 +674,19 @@ input[type=range]::-webkit-slider-runnable-track  {
 }
 .z{
   z-index: 1000;
+}
+.singleBox{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 7px;
+  border: solid white 2px;
+}
+.singleImg{
+  width: 100%;
+}
+.yus{
+  color: white;
+  -webkit-text-stroke: 1px black;
 }

@@ -38,11 +38,13 @@ const getSearchResults = asyncHandler(async(req,res)=>{
         const newArray = originalArray.map((item) => {
           const {id} = item;
           const { title, channelTitle, thumbnails } = item.snippet;
+          // const thumbnailUrl = (thumbnails.high ? thumbnails.high.url : thumbnails.default.url);
+          const thumbnailUrl = thumbnails.maxres?.url || thumbnails.high?.url || thumbnails.default?.url;
           return {
             videoId: id.videoId,
             title,
             channelTitle,
-            thumbnail: thumbnails.default.url,
+            thumbnail: thumbnailUrl,
           };
         });
         res.status(200).json({status:"success",data:newArray})
