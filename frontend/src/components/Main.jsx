@@ -83,34 +83,34 @@ const Main = () => {
     };
   }, []);
 
-  //timer
-        useEffect(() => {
-          const timer = setInterval(() => {
-            setCount((prevCount) => {
-              if (prevCount === 0) {
-                return time;
-              } else {
-                return prevCount - 1;
-              }
-            });
-          }, 1000);
+//   //timer
+//         useEffect(() => {
+//           const timer = setInterval(() => {
+//             setCount((prevCount) => {
+//               if (prevCount === 0) {
+//                 return time;
+//               } else {
+//                 return prevCount - 1;
+//               }
+//             });
+//           }, 1000);
       
-          return () => {
-            clearInterval(timer);
-          };
-        }, []);
+//           return () => {
+//             clearInterval(timer);
+//           };
+//         }, []);
 
-//changing background
-        useEffect(()=>{
-          if(count===0){
-            setBackgroundImage(imageUrls[currentIndex])
-            setCurrentIndex(currentIndex + 1)
-            if(currentIndex===9){
-              setCurrentIndex(0)
-            }
-          }
-          // eslint-disable-next-line
-        },[count])
+// //changing background
+//         useEffect(()=>{
+//           if(count===0){
+//             setBackgroundImage(imageUrls[currentIndex])
+//             setCurrentIndex(currentIndex + 1)
+//             if(currentIndex===9){
+//               setCurrentIndex(0)
+//             }
+//           }
+//           // eslint-disable-next-line
+//         },[count])
 
 //changing css root
         useEffect(()=>{

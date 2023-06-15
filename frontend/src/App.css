@@ -207,6 +207,7 @@ nav ul li a:hover{
 .heading{
   font-size: var(--fontb);
   text-transform: uppercase;
+  -webkit-text-stroke: 1px black;
 }
 .box,
 .loader{
