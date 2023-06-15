@@ -153,9 +153,9 @@ const Main = () => {
     </div>
     </div>
 
-    <div className="counter-holder">
+    {/* <div className="counter-holder">
     <p className='counter'>{count}</p>
-    </div>
+    </div> */}
     {/* <p className='counter1'>Currently visible heading: {visibleHeadingIndex !== null ? `Heading ${visibleHeadingIndex + 1}` : 'None'}</p> */}
     </div>
   )
