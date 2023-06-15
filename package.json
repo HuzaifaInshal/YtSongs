@@ -21,8 +21,6 @@
     "fs": "^0.0.1-security",
     "googleapis": "^118.0.0",
     "nodemon": "^2.0.22",
-    "socket.io": "^4.6.2",
-    "url-exist": "^3.0.1",
     "ytdl-core": "^4.11.4"
   }
 }
