@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.7639c8dd.css",
+    "main.js": "/static/js/main.5e901432.js",
+    "static/js/496.890f829e.chunk.js": "/static/js/496.890f829e.chunk.js",
+    "static/media/12.jpg": "/static/media/12.d484484b8ca95d79aa56.jpg",
+    "static/media/1.jpg": "/static/media/1.9185d406e4f23ab7605a.jpg",
+    "static/media/11.jpg": "/static/media/11.7cf61b479f0ff0e878ba.jpg",
+    "static/media/4.jpg": "/static/media/4.593f1e0fffbef228503b.jpg",
+    "static/media/5.jpg": "/static/media/5.668ac5514c890f063eda.jpg",
+    "static/media/10.jpg": "/static/media/10.12bdeecea81a8b7f2edb.jpg",
+    "static/media/7.jpg": "/static/media/7.6560efc4890c70f14a42.jpg",
+    "static/media/13.jpg": "/static/media/13.82e1cddf4f14c01b0c63.jpg",
+    "static/media/14.jpg": "/static/media/14.a1c81bcdf0623dd77378.jpg",
+    "static/media/3.jpg": "/static/media/3.093afc767b1fa8f48e75.jpg",
+    "static/media/8.jpg": "/static/media/8.edefed37bc8126a0e851.jpg",
+    "static/media/MatraRegular.otf": "/static/media/MatraRegular.78a1f3c64df698d75d8c.otf",
+    "index.html": "/index.html",
+    "main.7639c8dd.css.map": "/static/css/main.7639c8dd.css.map",
+    "main.5e901432.js.map": "/static/js/main.5e901432.js.map",
+    "496.890f829e.chunk.js.map": "/static/js/496.890f829e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7639c8dd.css",
+    "static/js/main.5e901432.js"
+  ]
+}

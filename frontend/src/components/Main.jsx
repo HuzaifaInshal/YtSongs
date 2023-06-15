@@ -23,9 +23,10 @@ import { Link } from 'react-router-dom';
 
 
 const Main = () => {
+  const time = 3 //by setting time to less value the background changes more smoothly as compared to long values where it changes with white background
   const [backgroundImage, setBackgroundImage] = useState(image1);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [count, setCount] = useState(5);
+  const [count, setCount] = useState(time);
 
   const imageUrls = [
     image3,image4,image5,image7,image8,image10,image11,image12,image13,image14
@@ -67,6 +68,7 @@ const Main = () => {
         observer.disconnect();
       });
     };
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
@@ -86,7 +88,7 @@ const Main = () => {
           const timer = setInterval(() => {
             setCount((prevCount) => {
               if (prevCount === 0) {
-                return 7;
+                return time;
               } else {
                 return prevCount - 1;
               }

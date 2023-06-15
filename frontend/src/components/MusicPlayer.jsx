@@ -79,6 +79,7 @@ const MusicPlayer = ({audioURL}) => {
             {/* <a className="player-controllers">
                 <i className="fa-sharp fa-solid fa-backward"></i>
                 </a> */}
+                
                 <a onClick={handlePlayPause} className="player-controllers">
                 {isPlaying ? <i className="fa-sharp fa-solid fa-pause"></i> : <i className="fa-sharp fa-solid fa-play"></i>}
                 </a>
