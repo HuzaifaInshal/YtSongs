@@ -52,6 +52,16 @@
     //     document.body.style.zoom = "90%"
     // }
     });
+    function setDocHeight() {
+    document.documentElement.style.setProperty('--vh', `${window.innerHeight/100}px`);
+    };
+
+    window.addEventListener('resize', function () {
+    setDocHeight();
+    });
+    window.addEventListener('orientationchange', function () {
+    setDocHeight();
+    });                   
     </script>
   </body>
 </html>

@@ -4,6 +4,7 @@
   src: url(./fonts/MatraRegular.otf) format('opentype');
 }
 
+
 body{
   margin: 0;
   padding: 0;
@@ -11,6 +12,7 @@ body{
 }
 html{
   scroll-behavior: smooth;
+  overflow: hidden;
 }
 *{
   font-family: 'poppins',sans-serif;
@@ -23,6 +25,7 @@ html{
   --fontbc:1.6rem;
   --fontc:1.2rem;
   --fontd:0.8rem;
+  --height:calc(var(--vh, 1vh) * 100);
 }
 @media only screen and (max-width:800px){
   :root{
@@ -36,7 +39,9 @@ html{
 }
 
 .container{
-  height: 100vh;
+  height: var(--height);
+  /* height: 100vh; */
+  /* height: 100%; */
   background-repeat: no-repeat;
  background-size: cover;
  background-position:center;
@@ -114,7 +119,9 @@ nav ul li a:hover{
     box-shadow: 0 0 70px var(--colora);
 }
 .holder{
-  height: calc(100vh - 80px);
+  height: calc(var(--height) - 80px);
+  /* height: calc(100vh - 80px); */
+  /* height: calc(100% - 80px); */
   padding-top: calc(5% + 80px);
   padding-bottom: 5%;
   padding-left: 10%;
@@ -139,11 +146,18 @@ nav ul li a:hover{
   padding: 0 10%;
 }
 .holder2{
-  height: calc(100vh - 130px);
+  /* height: calc(100% - 130px); */
+  height: calc(var(--height) - 130px);
+  /* height: calc(100vh - 130px); */
   overflow-y:scroll;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
   overflow-x: hidden;
+}
+@media only screen and (max-width:600px){
+  .holder2{
+    scroll-snap-type: none;
+  }
 }
 
 
@@ -181,20 +195,35 @@ nav ul li a:hover{
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 130px);
+  /* height: calc(100% - 130px); */
+  height: calc(var(--height) - 130px);
+  /* height: calc(100vh - 130px); */
   scroll-snap-align: start;
 }
 #about{
-  height: calc(100vh - 130px);
+  /* height: calc(100% - 130px); */
+  height: calc(var(--height) - 130px);
+  /* height: calc(100vh - 130px); */
   scroll-snap-align: start;
   padding-top: 10px;
   color: white;
 }
 #info{
-  height: calc(100vh - 130px);
+  /* height: calc(100% - 130px); */
+  height: calc(var(--height) - 130px);
+  /* height: calc(100vh - 130px); */
   scroll-snap-align: start;
   color: white;
   padding-top: 10px;
+}
+@media only screen and (max-width:600px){
+  #start,#about,#info{
+    scroll-snap-align: none;
+    
+  }
+  #about,#info{
+    height: max-content;
+  }
 }
 .youmusic{
   color:white;
@@ -261,7 +290,9 @@ nav ul li a:hover{
   z-index: 6;
 }
 .search-and-overlay{
-  height: 100vh;
+  /* height: 100%; */
+  height: var(--height);
+  /* height: 100vh; */
   background: rgb(111,108,108);
 background: linear-gradient(90deg, rgba(111,108,108,1) 0%, rgba(175,187,204,0.79) 100%);
 overflow-y: auto;
@@ -415,7 +446,9 @@ overflow-y: auto;
   }
 }
 .player2{
-  height: calc(100vh - 80px);
+  height: calc(var(--height) - 80px);
+  /* height: calc(100vh - 80px); */
+  /* height: calc(100% - 80px); */
   
   background-position: center;
   background-repeat: no-repeat;
