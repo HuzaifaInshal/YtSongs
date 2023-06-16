@@ -116,7 +116,7 @@ const Search = () => {
 
 
   return (
-    <>
+    <section>
     {loading ? <Loader text={loadingText} height="70vh" width="70vw"/> : ''}
       <div className='search-and-overlay'>
     <div className="title-holder">
@@ -189,7 +189,7 @@ const Search = () => {
      {!URL ? '' :<div className="up" style={up ? {"display":"none"} : {"display":"flex"}} onClick={openOverlay}><i className="fa-2x fa-solid fa-arrow-up"></i></div>
 }      
       </div>
-      </>
+      </section>
   )
 }
 
