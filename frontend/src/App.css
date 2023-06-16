@@ -25,7 +25,9 @@ html{
   --fontbc:1.6rem;
   --fontc:1.2rem;
   --fontd:0.8rem;
-  --height:calc(var(--vh, 1vh) * 100);
+  --height:calc(var(--vh));
+  /* --height:calc(var(--vh,1vh) * 100); */
+  /* --height:calc(var(--vh) * 100); */
 }
 @media only screen and (max-width:800px){
   :root{

@@ -52,10 +52,12 @@
     //     document.body.style.zoom = "90%"
     // }
     });
+    document.documentElement.style.setProperty('--vh', `${window.innerHeight}px`);
+    
     function setDocHeight() {
-    document.documentElement.style.setProperty('--vh', `${window.innerHeight/100}px`);
-    };
-
+    // document.documentElement.style.setProperty('--vh', `${window.innerHeight/100}px`);
+    document.documentElement.style.setProperty('--vh', `${window.innerHeight}px`);
+    }; 
     window.addEventListener('resize', function () {
     setDocHeight();
     });
