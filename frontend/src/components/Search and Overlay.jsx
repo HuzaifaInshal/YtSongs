@@ -31,8 +31,8 @@ const Search = () => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await fetch(`http://localhost:4000/search?name=${inputValue}`);
-        // const response = await fetch(`/search?name=${inputValue}`);
+        // const response = await fetch(`http://localhost:4000/search?name=${inputValue}`);
+        const response = await fetch(`/search?name=${inputValue}`);
         const jsonData = await response.json();
         setData(jsonData.data);
       } catch (error) {
@@ -61,8 +61,8 @@ const Search = () => {
         setUp(true)
       }else{
         try {
-          const response = await fetch(`http://localhost:4000/search/${videoId}?similiar=true`);
-          // const response = await fetch(`/search/${videoId}?similiar=true`);
+          // const response = await fetch(`http://localhost:4000/search/${videoId}?similiar=true`);
+          const response = await fetch(`/search/${videoId}?similiar=true`);
           const jsonData = await response.json();
           setPreURL(jsonData.audioURL)   
           setQu(jsonData.similiar)  
@@ -77,8 +77,8 @@ const Search = () => {
     const downloadFile=(videoId,title)=>{
       setLoadingText('downloading your file please wait')
       setLoading(true)
-      fetch(`http://localhost:4000/download/${videoId}`)
-      // fetch(`/download/${videoId}`)
+      // fetch(`http://localhost:4000/download/${videoId}`)
+      fetch(`/download/${videoId}`)
         .then((response) => response.blob())
         .then((blob) => {
           const url = window.URL.createObjectURL(blob);
