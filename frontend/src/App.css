@@ -26,17 +26,27 @@ html{
   --fontc:1.2rem;
   --fontd:0.8rem;
   /* --height:100vh; */
-  --height:100vh;
+  --height:var(--vh);
   /* --height:calc(var(--vh,1vh) * 100); */
 }
 @media only screen and (max-width:800px){
   :root{
-    --font:4.2rem
+    --font:4.2rem;
   }
 }
 @media only screen and (max-width:540px){
   :root{
-    --font:3.5rem
+    --font:3.5rem;
+    --fontb: 1.9rem;
+    --fontbc:1.4rem;
+    --fontc:1rem;
+    --fontd:0.7rem;
+  }
+}
+@media only screen and (max-width:500px){
+  :root{
+    --font:2.7rem;
+    --fonta:2.5rem
   }
 }
 
