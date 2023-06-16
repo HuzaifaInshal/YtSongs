@@ -34,9 +34,10 @@ html{
     --font:4.2rem;
   }
 }
-@media only screen and (max-width:540px){
+@media only screen and (max-width:550px){
   :root{
     --font:3.5rem;
+    --fonta:2.5rem;
     --fontb: 1.9rem;
     --fontbc:1.4rem;
     --fontc:1rem;
@@ -46,7 +47,6 @@ html{
 @media only screen and (max-width:500px){
   :root{
     --font:2.7rem;
-    --fonta:2.5rem
   }
 }
 
@@ -582,11 +582,17 @@ overflow-y: auto;
   gap: 5px;
   
 }
+@media only screen and (max-width:550px){
+  .video-controls-holder{
+    flex-direction: column;
+    justify-content: center;
+  }
+}
 
 .controls{
   outline: none;
   border: none;
-  font-size: 20px;
+  font-size: var(--fontc);
   font-weight: 400;
 
   padding : 8px 14px;
