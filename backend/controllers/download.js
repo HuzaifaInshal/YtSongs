@@ -61,7 +61,6 @@ const download = asyncHandler(async(req,res)=>{
     
         res.set('Content-Type', 'audio/mpeg');
         res.set('Content-Disposition', `attachment; filename="${filename}"`);
-        res.setHeader('Transfer-Encoding', 'chunked');
         res.send(buffer);
     
         writableStreamBuffer.destroy();
