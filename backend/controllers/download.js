@@ -45,30 +45,54 @@ const download = asyncHandler(async(req,res)=>{
 
     //creating a temporary buffer to download and  then transmit the downloaded song worksfor deployed as well as local host
 
-    const downloadAudio = async (videoUrl) => {
+    // const downloadAudio = async (videoUrl) => {
+    //   const videoInfo = await ytdl.getInfo(videoUrl);
+    //   const audioFormat = ytdl.chooseFormat(videoInfo.formats, { filter: 'audioonly' });
+    
+    //   const audioStream = ytdl(videoUrl, { format: audioFormat });
+    //   const filename = "output.mp3";
+    
+    //   const writableStreamBuffer = new WritableStreamBuffer();
+    //   audioStream.pipe(writableStreamBuffer);
+      
+    
+    //   audioStream.on('end', () => {
+    //     const buffer = writableStreamBuffer.getContents();
+    
+    //     res.set('Content-Type', 'audio/mpeg');
+    //     res.set('Content-Disposition', `attachment; filename="${filename}"`);
+    //     res.send(buffer);
+    
+    //     writableStreamBuffer.destroy();
+    //   });
+    
+    //   audioStream.on('error', (err) => {
+    //     console.error(err);
+        
+    //   });
+    // };
+
+    const downloadAudio = (videoUrl, res) => {
       const videoInfo = await ytdl.getInfo(videoUrl);
       const audioFormat = ytdl.chooseFormat(videoInfo.formats, { filter: 'audioonly' });
-    
+      
       const audioStream = ytdl(videoUrl, { format: audioFormat });
       const filename = "output.mp3";
     
-      const writableStreamBuffer = new WritableStreamBuffer();
-      audioStream.pipe(writableStreamBuffer);
-      
+      res.set('Content-Type', 'audio/mpeg');
+      res.set('Content-Disposition', `attachment; filename="${filename}"`);
+    
+      audioStream.on('data', (chunk) => {
+        res.write(chunk);
+      });
     
       audioStream.on('end', () => {
-        const buffer = writableStreamBuffer.getContents();
-    
-        res.set('Content-Type', 'audio/mpeg');
-        res.set('Content-Disposition', `attachment; filename="${filename}"`);
-        res.send(buffer);
-    
-        writableStreamBuffer.destroy();
+        res.end();
       });
     
       audioStream.on('error', (err) => {
         console.error(err);
-        
+        res.status(500).send('An error occurred while streaming audio.');
       });
     };
     
