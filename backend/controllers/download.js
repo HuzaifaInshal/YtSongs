@@ -96,7 +96,8 @@ const download = asyncHandler(async(req,res)=>{
       });
     };
     
-    downloadAudio(videoUrl);
+    downloadAudio(videoUrl,res);
+    // downloadAudio(videoUrl);
 });
 
 module.exports = {
