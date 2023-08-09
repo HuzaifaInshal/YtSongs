@@ -72,7 +72,7 @@ const download = asyncHandler(async(req,res)=>{
     //   });
     // };
 
-    const downloadAudio = (videoUrl, res) => {
+    const downloadAudio = async(videoUrl, res) => {
       const videoInfo = await ytdl.getInfo(videoUrl);
       const audioFormat = ytdl.chooseFormat(videoInfo.formats, { filter: 'audioonly' });
       
