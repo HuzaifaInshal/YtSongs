@@ -108,7 +108,7 @@ async function searchVideos(query) {
     const response = await youtube.search.list({
       part: "id,snippet",
       q: query,
-      maxResults:7
+      maxResults:13
     });
 
     // Filter out the excluded video
