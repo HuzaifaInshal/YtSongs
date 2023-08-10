@@ -24,6 +24,6 @@
     "nodemon": "^2.0.22",
     "sanitize-filename": "^1.6.3",
     "stream-buffers": "^3.0.2",
-    "ytdl-core": "^4.11.4"
+    "ytdl-core": "^4.11.5"
   }
 }
