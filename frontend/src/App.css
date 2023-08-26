@@ -49,6 +49,42 @@ html{
     --font:2.7rem;
   }
 }
+@keyframes changeBackground {
+  0% {
+    background-image: url('./backgroundimages/1.jpg');
+  }
+  10%{
+    background-image: url('./backgroundimages/12.jpg');
+  }
+  20%{
+    background-image: url('./backgroundimages/3.jpg');
+  }
+  30%{
+    background-image: url('./backgroundimages/4.jpg');
+  }
+  40%{
+    background-image: url('./backgroundimages/5.jpg');
+  }
+  50%{
+    background-image: url('./backgroundimages/6.jpg');
+  }
+  60%{
+    background-image: url('./backgroundimages/7.jpg');
+  }
+  70%{
+    background-image: url('./backgroundimages/8.jpg');
+  }
+  80%{
+    background-image: url('./backgroundimages/9.jpg');
+  }
+  90%{
+    background-image: url('./backgroundimages/10.jpg');
+  }
+  100%{
+    background-image: url('./backgroundimages/11.jpg');
+  }
+
+}
 
 .container{
   height: var(--height);
@@ -57,7 +93,8 @@ html{
   background-repeat: no-repeat;
  background-size: cover;
  background-position:center;
- transition: 2s;
+ /* transition: 2s; */
+ animation: changeBackground 70s infinite alternate;
 }
 nav{
   height: 80px;

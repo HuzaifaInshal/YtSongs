@@ -1,18 +1,18 @@
 import React from 'react'
 import { useState,useEffect,useRef } from 'react';
-import image1 from '../background images/1.jpg';
-import image3 from '../background images/3.jpg';
-import image4 from '../background images/4.jpg';
-import image5 from '../background images/5.jpg';
+// import image1 from '../background images/1.jpg';
+// import image3 from '../background images/3.jpg';
+// import image4 from '../background images/4.jpg';
+// import image5 from '../background images/5.jpg';
 // import image6 from '../background images/6.jpg';
-import image7 from '../background images/7.jpg';
-import image8 from '../background images/8.jpg';
+// import image7 from '../background images/7.jpg';
+// import image8 from '../background images/8.jpg';
 // import image9 from '../background images/9.jpg';
-import image10 from '../background images/10.jpg';
-import image11 from '../background images/11.jpg';
-import image12 from '../background images/12.jpg';
-import image13 from '../background images/13.jpg';
-import image14 from '../background images/14.jpg';
+// import image10 from '../background images/10.jpg';
+// import image11 from '../background images/11.jpg';
+// import image12 from '../background images/12.jpg';
+// import image13 from '../background images/13.jpg';
+// import image14 from '../background images/14.jpg';
 // import image15 from '../background images/15.jpg';
 import Start from './Start';
 import About from './About';
@@ -24,13 +24,13 @@ import { Link } from 'react-router-dom';
 
 const Main = () => {
   const time = 3 //by setting time to less value the background changes more smoothly as compared to long values where it changes with white background
-  const [backgroundImage, setBackgroundImage] = useState(image1);
+  // const [backgroundImage, setBackgroundImage] = useState(image1);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [count, setCount] = useState(time);
 
-  const imageUrls = [
-    image3,image4,image5,image7,image8,image10,image11,image12,image13,image14
-  ];
+  // const imageUrls = [
+  //   image3,image4,image5,image7,image8,image10,image11,image12,image13,image14
+  // ];
 
   //which is displayed
   const headingRefs = [
@@ -121,7 +121,8 @@ const Main = () => {
         
 
   return (
-      <div className='container' style={{ backgroundImage: `url(${backgroundImage})` }}>
+      <div className='container'>
+      {/* <div className='container' style={{ backgroundImage: `url(${backgroundImage})` }}> */}
       
     <nav>
       <a href="#start">
