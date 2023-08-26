@@ -83,7 +83,7 @@ const download = asyncHandler(async(req,res)=>{
         res.set('Content-Type', 'audio/mpeg');
         res.set('Content-Disposition', `attachment; filename="${filename}"`);
     
-        const chunkSize = 1024 * 1024; // 1MB chunk size
+        const chunkSize = 6 * 1024 * 1024; // 1MB chunk size
         let bytesRead = 0;
     
         audioStream.on('data', (chunk) => {
