@@ -72,41 +72,29 @@ const download = asyncHandler(async(req,res)=>{
     //   });
     // };
 
-    const downloadAudio = async (videoUrl, res) => {
-      try {
-        const videoInfo = await ytdl.getInfo(videoUrl);
-        const audioFormat = ytdl.chooseFormat(videoInfo.formats, { filter: 'audioonly' });
+    const downloadAudio = async(videoUrl, res) => {
+      const videoInfo = await ytdl.getInfo(videoUrl);
+      const audioFormat = ytdl.chooseFormat(videoInfo.formats, { filter: 'audioonly' });
+      
+      const audioStream = ytdl(videoUrl, { format: audioFormat });
+      const filename = "output.mp3";
     
-        const audioStream = ytdl(videoUrl, { format: audioFormat });
-        const filename = "output.mp3";
+      res.set('Content-Type', 'audio/mpeg');
+      res.set('Content-Disposition', `attachment; filename="${filename}"`);
     
-        res.set('Content-Type', 'audio/mpeg');
-        res.set('Content-Disposition', `attachment; filename="${filename}"`);
+      audioStream.on('data', (chunk) => {
+        res.write(chunk);
+      });
     
-        const chunkSize = 6 * 1024 * 1024; // 1MB chunk size
-        let bytesRead = 0;
+      audioStream.on('end', () => {
+        res.end();
+      });
     
-        audioStream.on('data', (chunk) => {
-          bytesRead += chunk.length;
-          if (bytesRead <= chunkSize) {
-            res.write(chunk);
-          }
-        });
-    
-        audioStream.on('end', () => {
-          res.end();
-        });
-    
-        audioStream.on('error', (err) => {
-          console.error(err);
-          res.status(500).send('An error occurred while streaming audio.');
-        });
-      } catch (err) {
+      audioStream.on('error', (err) => {
         console.error(err);
-        res.status(500).send('An error occurred while preparing audio download.');
-      }
+        res.status(500).send('An error occurred while streaming audio.');
+      });
     };
-    
     
     downloadAudio(videoUrl,res);
     // downloadAudio(videoUrl);
