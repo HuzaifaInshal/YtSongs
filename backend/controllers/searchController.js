@@ -6,9 +6,9 @@ const getSearchResults = asyncHandler(async(req,res)=>{
     const {name,maxresult} = req.query;
 
     if(!maxresult){
-      maxValue=20
-    }else if(Number(maxresult)>20){
-      maxValue=20
+      maxValue=10
+    }else if(Number(maxresult)>10){
+      maxValue=10
     }else{
       maxValue=maxresult
     }
