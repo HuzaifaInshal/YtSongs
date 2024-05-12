@@ -8,7 +8,7 @@
   ],
   "routes": [
     {
-      "src": "/api/(.*)", // Match the route where you want to apply CORS headers
+      "src": "/api/(.*)", 
       "headers": [
         {
           "key": "Access-Control-Allow-Credentials",
